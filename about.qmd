@@ -2,4 +2,11 @@
 title: "About"
 ---
 
-About this site
+## Areas of Interest
+I'm specializing in data science because it is cross-disciplinary. I have a variety of interests that intersect with human and environmental health; namely, predictive modelling and visual communication.
+
+## Professional Background
+For the past five years I've worked in health research at the University of Calgary. Most recently, I studied global inflammatory bowel disease rates and epidmeiologic transition theory as a research associate at the Kaplan Global Epidmeiology Lab. Their research supports reporting and advocacy at the national level as well as global knowledge synthesis and international collaboration. My role encompassed data aquisition, exploratory analysis, and the development of interactive data repositories.
+
+## Currently
+This year I am working on a Master's of Data Science at the University of British Columbia to deepen my technical skillset. The intensive course-based program covers statistics, machine learning, and modern data science tools with a focus on high-value workplace skills. In addition, I will continue to support *Shiny* web ap development for the Kaplan Lab.

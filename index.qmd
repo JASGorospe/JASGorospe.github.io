@@ -1,10 +1,8 @@
 ---
 title: "Julia Gorospe"
+about:
+  template: solana
+  image: images/me.jpg
 ---
 
-![](images/home.jpg){width=250px}
-
-During my undergrad, I studied biomedical science at the University of Calgary. After graduating, I stayed at the University of Calgary and worked for an epidemiology research group focusing on global rates of inflammatory bowel disease. Having spent a bit of time working with data and self-learning many topic-specific skills adjacent to data science, I felt I would benefit from a broad overview of the fundamentals. This is an opportunity to flesh out my technical skills in statistics and statistical programming while getting connected to the data science community here in Vancouver.
-
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+During my undergrad, I studied Biomedical Science at the University of Calgary. After graduating, I stayed at the University of Calgary and worked for an epidemiology research group focusing on global rates of inflammatory bowel disease. Having spent time working with data and self-learning many data science adjacent skills, I felt I would benefit from a broad overview of the fundamentals. I am currently pursuing a Master's of Data Science at the University of British Columbia to flesh out my analytical skills while getting connected to the data science community here in Vancouver.

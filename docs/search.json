@@ -1,16 +1,72 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
     "section": "",
-    "text": "About this site"
+    "text": "My first weeks in MDS\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nJulia Gorospe\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Julia Gorospe",
     "section": "",
-    "text": "During my undergrad, I studied biomedical science at the University of Calgary. After graduating, I stayed at the University of Calgary and worked for an epidemiology research group focusing on global rates of inflammatory bowel disease. Having spent a bit of time working with data and self-learning many topic-specific skills adjacent to data science, I felt I would benefit from a broad overview of the fundamentals. This is an opportunity to flesh out my technical skills in statistics and statistical programming while getting connected to the data science community here in Vancouver.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "During my undergrad, I studied Biomedical Science at the University of Calgary. After graduating, I stayed at the University of Calgary and worked for an epidemiology research group focusing on global rates of inflammatory bowel disease. Having spent time working with data and self-learning many data science adjacent skills, I felt I would benefit from a broad overview of the fundamentals. I am currently pursuing a Master’s of Data Science at the University of British Columbia to flesh out my analytical skills while getting connected to the data science community here in Vancouver."
+  },
+  {
+    "objectID": "posts/first-weeks/index.html",
+    "href": "posts/first-weeks/index.html",
+    "title": "My first weeks in MDS",
+    "section": "",
+    "text": "Finding out where things are around campus."
+  },
+  {
+    "objectID": "posts/first-weeks/index.html#not-getting-lost",
+    "href": "posts/first-weeks/index.html#not-getting-lost",
+    "title": "My first weeks in MDS",
+    "section": "Not getting lost",
+    "text": "Not getting lost\nVancouver is a new city for me so it has been nice to have some time to get oriented both to amenities in the city itself and to the UBC campus. The campus is walkable and provides convenient access to study space, a quick bit to eat, and the beach!"
+  },
+  {
+    "objectID": "posts/first-weeks/index.html#meeting-my-peers",
+    "href": "posts/first-weeks/index.html#meeting-my-peers",
+    "title": "My first weeks in MDS",
+    "section": "Meeting my peers",
+    "text": "Meeting my peers\nDuring orientation, I had the chance to meet many of my peers who are coming from all sorts of different backgrounds to learn applications of data science that apply to their own work. The variety of experience is already supporting collaboration on assignments as there is always someone at the table who has more or less of an understanding of the given topic."
+  },
+  {
+    "objectID": "posts/first-weeks/index.html#keeping-things-organized",
+    "href": "posts/first-weeks/index.html#keeping-things-organized",
+    "title": "My first weeks in MDS",
+    "section": "Keeping things organized",
+    "text": "Keeping things organized\nSince it’s been a while since school, it took some time to figure out how to keep on top of notes, studying, and assignments across many different platforms.\n\n\n\nRemembering how to take notes."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I’m specializing in data science because it is cross-disciplinary. I have a variety of interests that intersect with human and environmental health; namely, predictive modelling and visual communication."
+  },
+  {
+    "objectID": "about.html#areas-of-interest",
+    "href": "about.html#areas-of-interest",
+    "title": "About",
+    "section": "",
+    "text": "I’m specializing in data science because it is cross-disciplinary. I have a variety of interests that intersect with human and environmental health; namely, predictive modelling and visual communication."
+  },
+  {
+    "objectID": "about.html#professional-background",
+    "href": "about.html#professional-background",
+    "title": "About",
+    "section": "Professional Background",
+    "text": "Professional Background\nFor the past five years I’ve worked in health research at the University of Calgary. Most recently, I studied global inflammatory bowel disease rates and epidmeiologic transition theory as a research associate at the Kaplan Global Epidmeiology Lab. Their research supports reporting and advocacy at the national level as well as global knowledge synthesis and international collaboration. My role encompassed data aquisition, exploratory analysis, and the development of interactive data repositories."
+  },
+  {
+    "objectID": "about.html#currently",
+    "href": "about.html#currently",
+    "title": "About",
+    "section": "Currently",
+    "text": "Currently\nThis year I am working on a Master’s of Data Science at the University of British Columbia to deepen my technical skillset. The intensive course-based program covers statistics, machine learning, and modern data science tools with a focus on high-value workplace skills. In addition, I will continue to support Shiny web ap development for the Kaplan Lab."
   }
 ]

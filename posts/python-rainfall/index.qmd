@@ -1,0 +1,14 @@
+---
+title: "Rainfall in Vancouver"
+author: "Julia Gorospe"
+date: 2026-09-21
+---
+
+
+## Data
+source
+licence
+
+## Monthly Averages 1966-1982
+
+## Trends in Rainfall

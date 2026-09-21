@@ -1,0 +1,14 @@
+---
+title: "Provincial Choropleth Map"
+author: "Julia Gorospe"
+date: 2026-09-21
+---
+
+
+## Dataset
+source
+license
+
+## What is a Choropleth Map
+
+## Visualizing Provinical Summary Statistics

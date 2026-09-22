@@ -4,11 +4,42 @@ author: "Julia Gorospe"
 date: 2026-09-21
 ---
 
+```{r setup}
+#| message: false
+
+# load packages
+library(tidyverse)
+library(gt)
+#library(sf)
+```
 
 ## Dataset
-source
-license
+source: Natural Earth
+accreditation: Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.
+license: Creative Commons CC0 Public Domain Dedication
+
+```{r load data}
+#| warning: false
+
+#provinces <- read_sf()
+
+```
 
 ## What is a Choropleth Map
+Each region is represented as a polygon with boundaries representing the separation between different areas. Zonal statistics may be calculated that correspond with each region. The values can be mapped to a colour or a colour saturation level to create intuitive 
+
 
 ## Visualizing Provinical Summary Statistics
+Choropleth maps can be generated in R with several tools including ggplot. Here the provinces are plotted on the map with colours assigned based on population.
+
+```{r map}
+world_data <- ggplot2::map_data("world")
+pop_data <- gt::countrypops
+head(world_data)
+ggplot(world_data, aes(x = long, y = lat, group = group)) +
+  geom_polygon(fill = "lightgray", color = "white") +
+  theme_minimal()
+# ggplot(my_sf) +
+#   geom_sf(fill = "white", color = "black", linewidth = 0.3) +
+#   theme_void()
+```

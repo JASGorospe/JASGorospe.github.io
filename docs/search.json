@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "My first weeks in MDS\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nJulia Gorospe\n\n\n\n\n\nNo matching items"
+    "text": "Precipitation in Vancouver\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nJulia Gorospe\n\n\n\n\n\n\n\n\n\n\n\n\nProvincial Choropleth Map\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nJulia Gorospe\n\n\n\n\n\n\n\n\n\n\n\n\nMy first weeks in MDS\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nJulia Gorospe\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -12,6 +12,34 @@
     "title": "Julia Gorospe",
     "section": "",
     "text": "During my undergrad, I studied Biomedical Science at the University of Calgary. After graduating, I stayed at the University of Calgary and worked for an epidemiology research group focusing on global rates of inflammatory bowel disease. Having spent time working with data and self-learning many data science adjacent skills, I felt I would benefit from a broad overview of the fundamentals. I am currently pursuing a Master’s of Data Science at the University of British Columbia to flesh out my analytical skills while getting connected to the data science community here in Vancouver."
+  },
+  {
+    "objectID": "posts/python-rainfall/index.html",
+    "href": "posts/python-rainfall/index.html",
+    "title": "Precipitation in Vancouver",
+    "section": "",
+    "text": "import pandas as pd\nimport seaborn as sns"
+  },
+  {
+    "objectID": "posts/python-rainfall/index.html#data",
+    "href": "posts/python-rainfall/index.html#data",
+    "title": "Precipitation in Vancouver",
+    "section": "Data",
+    "text": "Data\nsource: Government of Canada - Environment and Natural Resources: Monthly Climate Data Report for Vancouver Dunbar South (1966–1982)\naccreditation: based on Environment and Climate Change Canada data.\nlicence: Open Government License - Canada\n\nprecip = pd.read_csv(\"en_climate_monthly_BC_1108436_1966-1982_P1M.csv\")\nprecip.head()\n\n\n\n\n\n\n\n\nLongitude (x)\nLatitude (y)\nStation Name\nClimate ID\nDate/Time\nYear\nMonth\nMean Max Temp (°C)\nMean Max Temp Flag\nMean Min Temp (°C)\n...\nTotal Snow (cm)\nTotal Snow Flag\nTotal Precip (mm)\nTotal Precip Flag\nSnow Grnd Last Day (cm)\nSnow Grnd Last Day Flag\nDir of Max Gust (10's deg)\nDir of Max Gust Flag\nSpd of Max Gust (km/h)\nSpd of Max Gust Flag\n\n\n\n\n0\n-123.18\n49.25\nVANCOUVER DUNBAR SOUTH\n1108436\n1966-01\n1966\n1\nNaN\nNaN\nNaN\n...\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\n\n\n1\n-123.18\n49.25\nVANCOUVER DUNBAR SOUTH\n1108436\n1966-02\n1966\n2\nNaN\nNaN\nNaN\n...\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\n\n\n2\n-123.18\n49.25\nVANCOUVER DUNBAR SOUTH\n1108436\n1966-03\n1966\n3\nNaN\nM\nNaN\n...\n5.8\nNaN\n103.6\nNaN\n0.0\nNaN\nNaN\nNaN\nNaN\nNaN\n\n\n3\n-123.18\n49.25\nVANCOUVER DUNBAR SOUTH\n1108436\n1966-04\n1966\n4\n14.7\nNaN\n5.4\n...\n0.0\nNaN\n38.4\nNaN\n0.0\nNaN\nNaN\nNaN\nNaN\nNaN\n\n\n4\n-123.18\n49.25\nVANCOUVER DUNBAR SOUTH\n1108436\n1966-05\n1966\n5\n17.8\nNaN\n8.2\n...\n0.0\nNaN\n79.5\nNaN\n0.0\nNaN\nNaN\nNaN\nNaN\nNaN\n\n\n\n\n5 rows × 29 columns"
+  },
+  {
+    "objectID": "posts/python-rainfall/index.html#monthly-averages-1966-1982",
+    "href": "posts/python-rainfall/index.html#monthly-averages-1966-1982",
+    "title": "Precipitation in Vancouver",
+    "section": "Monthly Averages 1966-1982",
+    "text": "Monthly Averages 1966-1982\nSummary statistics help investigate which months have the most precipitation in Vancouver.\n\n# recode the month column to have month names\nmonths = {\n    1: \"January\", 2: \"February\", 3: \"March\", 4: \"April\", 5: \"May\", 6: \"June\",\n    7: \"July\", 8: \"August\", 9: \"September\", 10: \"October\", 11: \"November\", 12: \"December\"\n}\n\nprecip[\"Month\"] = precip[\"Month\"].map(months)\nprecip[\"Month\"] = pd.Categorical(\n    precip[\"Month\"],\n    categories=list(months.values()),\n    ordered=True\n)\n\n# calculate summary statistics per month\nmonth_avg = (\n    precip\n    .dropna(subset=[\"Total Precip (mm)\"])\n    .groupby(\"Month\", as_index=False)[\"Total Precip (mm)\"]\n    .mean().round(2)\n)\nmonth_avg\n\n\n\n\n\n\n\n\nMonth\nTotal Precip (mm)\n\n\n\n\n0\nJanuary\n160.66\n\n\n1\nFebruary\n132.23\n\n\n2\nMarch\n118.95\n\n\n3\nApril\n80.74\n\n\n4\nMay\n63.25\n\n\n5\nJune\n54.04\n\n\n6\nJuly\n44.38\n\n\n7\nAugust\n49.42\n\n\n8\nSeptember\n81.19\n\n\n9\nOctober\n127.68\n\n\n10\nNovember\n170.67\n\n\n11\nDecember\n212.68"
+  },
+  {
+    "objectID": "posts/python-rainfall/index.html#trends-in-rainfall",
+    "href": "posts/python-rainfall/index.html#trends-in-rainfall",
+    "title": "Precipitation in Vancouver",
+    "section": "Trends in Rainfall",
+    "text": "Trends in Rainfall\nA quick bar plot will help visualize the trend and really highlight which months are wet and which months are dry!\n\nax = sns.barplot(\n    data=month_avg,\n    x=\"Month\",\n    y=\"Total Precip (mm)\"\n)\n\nax.set_title(\"Average Monthly Precipitation\")\nax.tick_params(axis=\"x\", rotation=90)"
   },
   {
     "objectID": "posts/first-weeks/index.html",
@@ -42,6 +70,34 @@
     "text": "Keeping things organized\nSince it’s been a while since school, it took some time to figure out how to keep on top of notes, studying, and assignments across many different platforms.\n\n\n\nRemembering how to take notes."
   },
   {
+    "objectID": "posts/r-map/index.html",
+    "href": "posts/r-map/index.html",
+    "title": "Provincial Choropleth Map",
+    "section": "",
+    "text": "# load packages\nlibrary(tidyverse)\nlibrary(gt)\n#library(sf)"
+  },
+  {
+    "objectID": "posts/r-map/index.html#dataset",
+    "href": "posts/r-map/index.html#dataset",
+    "title": "Provincial Choropleth Map",
+    "section": "Dataset",
+    "text": "Dataset\nsource: Natural Earth accreditation: Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com. license: Creative Commons CC0 Public Domain Dedication\n\n#provinces &lt;- read_sf()"
+  },
+  {
+    "objectID": "posts/r-map/index.html#what-is-a-choropleth-map",
+    "href": "posts/r-map/index.html#what-is-a-choropleth-map",
+    "title": "Provincial Choropleth Map",
+    "section": "What is a Choropleth Map",
+    "text": "What is a Choropleth Map\nEach region is represented as a polygon with boundaries representing the separation between different areas. Zonal statistics may be calculated that correspond with each region. The values can be mapped to a colour or a colour saturation level to create intuitive"
+  },
+  {
+    "objectID": "posts/r-map/index.html#visualizing-provinical-summary-statistics",
+    "href": "posts/r-map/index.html#visualizing-provinical-summary-statistics",
+    "title": "Provincial Choropleth Map",
+    "section": "Visualizing Provinical Summary Statistics",
+    "text": "Visualizing Provinical Summary Statistics\nChoropleth maps can be generated in R with several tools including ggplot. Here the provinces are plotted on the map with colours assigned based on population.\n\nworld_data &lt;- ggplot2::map_data(\"world\")\npop_data &lt;- gt::countrypops\nhead(world_data)\n\n       long      lat group order region subregion\n1 -69.89912 12.45200     1     1  Aruba      &lt;NA&gt;\n2 -69.89571 12.42300     1     2  Aruba      &lt;NA&gt;\n3 -69.94219 12.43853     1     3  Aruba      &lt;NA&gt;\n4 -70.00415 12.50049     1     4  Aruba      &lt;NA&gt;\n5 -70.06612 12.54697     1     5  Aruba      &lt;NA&gt;\n6 -70.05088 12.59707     1     6  Aruba      &lt;NA&gt;\n\nggplot(world_data, aes(x = long, y = lat, group = group)) +\n  geom_polygon(fill = \"lightgray\", color = \"white\") +\n  theme_minimal()\n\n\n\n\n\n\n\n# ggplot(my_sf) +\n#   geom_sf(fill = \"white\", color = \"black\", linewidth = 0.3) +\n#   theme_void()"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -68,5 +124,12 @@
     "title": "About",
     "section": "Currently",
     "text": "Currently\nThis year I am working on a Master’s of Data Science at the University of British Columbia to deepen my technical skillset. The intensive course-based program covers statistics, machine learning, and modern data science tools with a focus on high-value workplace skills. In addition, I will continue to support Shiny web ap development for the Kaplan Lab."
+  },
+  {
+    "objectID": "posts/python-rainfall/index.html#setup",
+    "href": "posts/python-rainfall/index.html#setup",
+    "title": "Precipitation in Vancouver",
+    "section": "",
+    "text": "import pandas as pd\nimport seaborn as sns"
   }
 ]

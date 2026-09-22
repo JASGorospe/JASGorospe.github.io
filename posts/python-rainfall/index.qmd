@@ -1,14 +1,66 @@
 ---
-title: "Rainfall in Vancouver"
+title: "Precipitation in Vancouver"
 author: "Julia Gorospe"
 date: 2026-09-21
 ---
 
+## Setup
+```{python setup}
+#| message: false
+
+import pandas as pd
+import seaborn as sns
+```
 
 ## Data
-source
-licence
+source: Government of Canada - Environment and Natural Resources: [Monthly Climate Data Report for Vancouver Dunbar South (1966–1982)](https://climate.weather.gc.ca/climate_data/monthly_data_e.html?hlyRange=%7C&dlyRange=1966-03-01%7C1982-08-31&mlyRange=1966-01-01%7C1982-12-01&climate_id=1108436&Prov=BC&urlExtension=_e.html&searchType=stnProx&optLimit=specDate&Month=1&Day=1&StartYear=1840&EndYear=2026&Year=1978&selRowPerPage=25&Line=4&txtRadius=25&optProxType=navLink&txtLatDecDeg=49.216666666667&txtLongDecDeg=-123.13333333333&timeframe=3)
+
+accreditation: based on Environment and Climate Change Canada data.
+
+licence: Open Government License - Canada
+
+```{python load data}
+precip = pd.read_csv("en_climate_monthly_BC_1108436_1966-1982_P1M.csv")
+precip.head()
+```
 
 ## Monthly Averages 1966-1982
+Summary statistics help investigate which months have the most precipitation in Vancouver.
+
+```{python summary}
+# recode the month column to have month names
+months = {
+    1: "January", 2: "February", 3: "March", 4: "April", 5: "May", 6: "June",
+    7: "July", 8: "August", 9: "September", 10: "October", 11: "November", 12: "December"
+}
+
+precip["Month"] = precip["Month"].map(months)
+precip["Month"] = pd.Categorical(
+    precip["Month"],
+    categories=list(months.values()),
+    ordered=True
+)
+
+# calculate summary statistics per month
+month_avg = (
+    precip
+    .dropna(subset=["Total Precip (mm)"])
+    .groupby("Month", as_index=False)["Total Precip (mm)"]
+    .mean().round(2)
+)
+month_avg
+```
 
 ## Trends in Rainfall
+A quick bar plot will help visualize the trend and really highlight which months are wet and which months are dry!
+
+```{python plot}
+ax = sns.barplot(
+    data=month_avg,
+    x="Month",
+    y="Total Precip (mm)"
+)
+
+ax.set_title("Average Monthly Precipitation")
+ax.tick_params(axis="x", rotation=90)
+```

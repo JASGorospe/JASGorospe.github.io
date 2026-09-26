@@ -18,25 +18,28 @@ _This project was developed with MacOS Sequoia 15.7.9 and has not been tested on
 ## Build Instructions
 Steps to recreate this project locally:
 
-1. Download the repository
+### 1. Download the repository
+**bash**
 ```bash
 git clone git@github.com:JASGorospe/JASGorospe.github.io.git
 cd JASGorospe.github.io
 ```
 
-2. Rebuild Python and R environments
-
-To generate and activate a Python virtual environment from the pyproject.toml file.
+### 2. Rebuild Python and R environments
+To generate and activate a Python virtual environment from the pyproject.toml file.  
+**bash**
 ```bash
 uv sync
 ```
 
-To recreate and activate the R virtual environment from the renv.lock file.
-```r "R"
+To recreate and activate the R virtual environment from the renv.lock file.  
+**R**
+```r
 renv::restore()
 ```
 
-3. Generate and view the site using Quarto
+### 3. Generate and view the site using Quarto
+**bash**
 ```bash
 uv run quarto render
 uv run quarto preview

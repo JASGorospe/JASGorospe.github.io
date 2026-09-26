@@ -32,7 +32,7 @@ uv sync
 ```
 
 To recreate and activate the R virtual environment from the renv.lock file.
-```r
+```r "R"
 renv::restore()
 ```
 

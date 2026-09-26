@@ -81,14 +81,14 @@
     "href": "posts/r-map/index.html",
     "title": "Global Energy Imports",
     "section": "",
-    "text": "# load packages\nlibrary(tidyverse)"
+    "text": "# load packages\nlibrary(tidyverse)\nlibrary(maps)"
   },
   {
     "objectID": "posts/r-map/index.html#dataset",
     "href": "posts/r-map/index.html#dataset",
     "title": "Global Energy Imports",
     "section": "Dataset",
-    "text": "Dataset\nThe World Bank compiles time series data for a variety of society measures by administrative regions. Here trends in energy import are visualized through a set of maps.\nIndicator description from World Bank Net energy imports are estimated as gross imports less gross exports, both measured in tons of oil equivalents (toe). A negative value indicates that the country is a net exporter. Energy use refers to use of primary energy before transformation to other end-use fuels, which is equal to indigenous production plus imports and stock changes, minus exports and fuels supplied to ships and aircraft engaged in international transport.\nsource: World Development Indicators Energy imports, net (% of energy use) - EG.IMP.CONS.ZS\nlicense: Creative Commons Attribution 4.0\nA simple global map with country boundaries is available from Natural Earth through the ggplot2 package.\nsource: Natural Earth\nlicense: Creative Commons CC0 Public Domain Dedication\n\n# load WDI dataset\nenergy_raw &lt;- read_csv(\"energy_imports.csv\") |&gt; \n    mutate(`Country Name` = case_when(\n      `Country Name` == \"Russian Federation\" ~ \"Russia\",\n      `Country Name` == \"United States\" ~ \"USA\",\n      TRUE ~ `Country Name`)\n    )\n\n# load world data from ggplot2 package\nworld_data &lt;- ggplot2::map_data(\"world\")"
+    "text": "Dataset\nThe World Bank compiles time series data for a variety of society measures by administrative regions. Here trends in energy import are visualized through a set of maps.\nIndicator description from World Bank Net energy imports are estimated as gross imports less gross exports, both measured in tons of oil equivalents (toe). A negative value indicates that the country is a net exporter. Energy use refers to use of primary energy before transformation to other end-use fuels, which is equal to indigenous production plus imports and stock changes, minus exports and fuels supplied to ships and aircraft engaged in international transport.\nsource: World Development Indicators Energy imports, net (% of energy use) - EG.IMP.CONS.ZS\nlicense: Creative Commons Attribution 4.0\nA simple global map with country boundaries is available from Natural Earth through the maps package.\nsource: Natural Earth\nlicense: Creative Commons CC0 Public Domain Dedication\n\n# load WDI dataset\nenergy_raw &lt;- read_csv(\"energy_imports.csv\") |&gt; \n    mutate(`Country Name` = case_when(\n      `Country Name` == \"Russian Federation\" ~ \"Russia\",\n      `Country Name` == \"United States\" ~ \"USA\",\n      TRUE ~ `Country Name`)\n    )\n\n# load world data from ggplot2 package\nworld_data &lt;- ggplot2::map_data(\"world\")"
   },
   {
     "objectID": "posts/r-map/index.html#data-wrangling",

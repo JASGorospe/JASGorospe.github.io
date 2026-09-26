@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "Precipitation in Vancouver\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nJulia Gorospe\n\n\n\n\n\n\n\n\n\n\n\n\nProvincial Choropleth Map\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nJulia Gorospe\n\n\n\n\n\n\n\n\n\n\n\n\nMy first weeks in MDS\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nJulia Gorospe\n\n\n\n\n\nNo matching items"
+    "text": "Global Energy Imports\n\n\n\n\n\n\n\n\nSep 25, 2026\n\n\nJulia Gorospe\n\n\n\n\n\n\n\n\n\n\n\n\nPrecipitation in Vancouver\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nJulia Gorospe\n\n\n\n\n\n\n\n\n\n\n\n\nMy first weeks in MDS\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nJulia Gorospe\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -21,11 +21,18 @@
     "text": "import pandas as pd\nimport seaborn as sns"
   },
   {
+    "objectID": "posts/python-rainfall/index.html#setup",
+    "href": "posts/python-rainfall/index.html#setup",
+    "title": "Precipitation in Vancouver",
+    "section": "",
+    "text": "import pandas as pd\nimport seaborn as sns"
+  },
+  {
     "objectID": "posts/python-rainfall/index.html#data",
     "href": "posts/python-rainfall/index.html#data",
     "title": "Precipitation in Vancouver",
     "section": "Data",
-    "text": "Data\nsource: Government of Canada - Environment and Natural Resources: Monthly Climate Data Report for Vancouver Dunbar South (1966–1982)\naccreditation: based on Environment and Climate Change Canada data.\nlicence: Open Government License - Canada\n\nprecip = pd.read_csv(\"en_climate_monthly_BC_1108436_1966-1982_P1M.csv\")\nprecip.head()\n\n\n\n\n\n\n\n\nLongitude (x)\nLatitude (y)\nStation Name\nClimate ID\nDate/Time\nYear\nMonth\nMean Max Temp (°C)\nMean Max Temp Flag\nMean Min Temp (°C)\n...\nTotal Snow (cm)\nTotal Snow Flag\nTotal Precip (mm)\nTotal Precip Flag\nSnow Grnd Last Day (cm)\nSnow Grnd Last Day Flag\nDir of Max Gust (10's deg)\nDir of Max Gust Flag\nSpd of Max Gust (km/h)\nSpd of Max Gust Flag\n\n\n\n\n0\n-123.18\n49.25\nVANCOUVER DUNBAR SOUTH\n1108436\n1966-01\n1966\n1\nNaN\nNaN\nNaN\n...\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\n\n\n1\n-123.18\n49.25\nVANCOUVER DUNBAR SOUTH\n1108436\n1966-02\n1966\n2\nNaN\nNaN\nNaN\n...\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\n\n\n2\n-123.18\n49.25\nVANCOUVER DUNBAR SOUTH\n1108436\n1966-03\n1966\n3\nNaN\nM\nNaN\n...\n5.8\nNaN\n103.6\nNaN\n0.0\nNaN\nNaN\nNaN\nNaN\nNaN\n\n\n3\n-123.18\n49.25\nVANCOUVER DUNBAR SOUTH\n1108436\n1966-04\n1966\n4\n14.7\nNaN\n5.4\n...\n0.0\nNaN\n38.4\nNaN\n0.0\nNaN\nNaN\nNaN\nNaN\nNaN\n\n\n4\n-123.18\n49.25\nVANCOUVER DUNBAR SOUTH\n1108436\n1966-05\n1966\n5\n17.8\nNaN\n8.2\n...\n0.0\nNaN\n79.5\nNaN\n0.0\nNaN\nNaN\nNaN\nNaN\nNaN\n\n\n\n\n5 rows × 29 columns"
+    "text": "Data\nThe Environment and Natural Resources department makes historical weather data publicly available. A weather station in Dunbar collected data on rainfall, snowfall, and temperature between 1955 and 1982.\nsource: Government of Canada - Environment and Natural Resources: Monthly Climate Data Report for Vancouver Dunbar South (1966–1982)\nlicence: Open Government License - Canada\n\nprecip = pd.read_csv(\"en_climate_monthly_BC_1108436_1966-1982_P1M.csv\")\nprecip.head()\n\n\n\n\n\n\n\n\nLongitude (x)\nLatitude (y)\nStation Name\nClimate ID\nDate/Time\nYear\nMonth\nMean Max Temp (°C)\nMean Max Temp Flag\nMean Min Temp (°C)\n...\nTotal Snow (cm)\nTotal Snow Flag\nTotal Precip (mm)\nTotal Precip Flag\nSnow Grnd Last Day (cm)\nSnow Grnd Last Day Flag\nDir of Max Gust (10's deg)\nDir of Max Gust Flag\nSpd of Max Gust (km/h)\nSpd of Max Gust Flag\n\n\n\n\n0\n-123.18\n49.25\nVANCOUVER DUNBAR SOUTH\n1108436\n1966-01\n1966\n1\nNaN\nNaN\nNaN\n...\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\n\n\n1\n-123.18\n49.25\nVANCOUVER DUNBAR SOUTH\n1108436\n1966-02\n1966\n2\nNaN\nNaN\nNaN\n...\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\n\n\n2\n-123.18\n49.25\nVANCOUVER DUNBAR SOUTH\n1108436\n1966-03\n1966\n3\nNaN\nM\nNaN\n...\n5.8\nNaN\n103.6\nNaN\n0.0\nNaN\nNaN\nNaN\nNaN\nNaN\n\n\n3\n-123.18\n49.25\nVANCOUVER DUNBAR SOUTH\n1108436\n1966-04\n1966\n4\n14.7\nNaN\n5.4\n...\n0.0\nNaN\n38.4\nNaN\n0.0\nNaN\nNaN\nNaN\nNaN\nNaN\n\n\n4\n-123.18\n49.25\nVANCOUVER DUNBAR SOUTH\n1108436\n1966-05\n1966\n5\n17.8\nNaN\n8.2\n...\n0.0\nNaN\n79.5\nNaN\n0.0\nNaN\nNaN\nNaN\nNaN\nNaN\n\n\n\n\n5 rows × 29 columns\n\n\n\naccreditation: based on Environment and Climate Change Canada data."
   },
   {
     "objectID": "posts/python-rainfall/index.html#monthly-averages-1966-1982",
@@ -39,7 +46,7 @@
     "href": "posts/python-rainfall/index.html#trends-in-rainfall",
     "title": "Precipitation in Vancouver",
     "section": "Trends in Rainfall",
-    "text": "Trends in Rainfall\nA quick bar plot will help visualize the trend and really highlight which months are wet and which months are dry!\n\nax = sns.barplot(\n    data=month_avg,\n    x=\"Month\",\n    y=\"Total Precip (mm)\"\n)\n\nax.set_title(\"Average Monthly Precipitation\")\nax.tick_params(axis=\"x\", rotation=90)"
+    "text": "Trends in Rainfall\nA quick bar plot will help visualize the trend and really highlight which months are wet and which months are dry!\n\nax = sns.barplot(\n    data=month_avg,\n    x=\"Month\",\n    y=\"Total Precip (mm)\"\n)\n\nax.set_title(\"Average Monthly Precipitation\")\nax.tick_params(axis=\"x\", rotation=90)\n\n\n\n\nAverage Monthly Percipitation in Dunbar Vancouver 1966-1982"
   },
   {
     "objectID": "posts/first-weeks/index.html",
@@ -72,30 +79,37 @@
   {
     "objectID": "posts/r-map/index.html",
     "href": "posts/r-map/index.html",
-    "title": "Provincial Choropleth Map",
+    "title": "Global Energy Imports",
     "section": "",
-    "text": "# load packages\nlibrary(tidyverse)\nlibrary(gt)\n#library(sf)"
+    "text": "# load packages\nlibrary(tidyverse)"
   },
   {
     "objectID": "posts/r-map/index.html#dataset",
     "href": "posts/r-map/index.html#dataset",
-    "title": "Provincial Choropleth Map",
+    "title": "Global Energy Imports",
     "section": "Dataset",
-    "text": "Dataset\nsource: Natural Earth accreditation: Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com. license: Creative Commons CC0 Public Domain Dedication\n\n#provinces &lt;- read_sf()"
+    "text": "Dataset\nThe World Bank compiles time series data for a variety of society measures by administrative regions. Here trends in energy import are visualized through a set of maps.\nIndicator description from World Bank Net energy imports are estimated as gross imports less gross exports, both measured in tons of oil equivalents (toe). A negative value indicates that the country is a net exporter. Energy use refers to use of primary energy before transformation to other end-use fuels, which is equal to indigenous production plus imports and stock changes, minus exports and fuels supplied to ships and aircraft engaged in international transport.\nsource: World Development Indicators Energy imports, net (% of energy use) - EG.IMP.CONS.ZS\nlicense: Creative Commons Attribution 4.0\nA simple global map with country boundaries is available from Natural Earth through the ggplot2 package.\nsource: Natural Earth\nlicense: Creative Commons CC0 Public Domain Dedication\n\n# load WDI dataset\nenergy_raw &lt;- read_csv(\"energy_imports.csv\") |&gt; \n    mutate(`Country Name` = case_when(\n      `Country Name` == \"Russian Federation\" ~ \"Russia\",\n      `Country Name` == \"United States\" ~ \"USA\",\n      TRUE ~ `Country Name`)\n    )\n\n# load world data from ggplot2 package\nworld_data &lt;- ggplot2::map_data(\"world\")"
+  },
+  {
+    "objectID": "posts/r-map/index.html#data-wrangling",
+    "href": "posts/r-map/index.html#data-wrangling",
+    "title": "Global Energy Imports",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\nThe energy import data is too bulky to visualize meaningfully and needs to be subset to provide a usable dataset. To create the maps, the energy import data must be merged with the geographic data.\n\nenergy_subset &lt;- energy_raw |&gt; \n  filter(\n    Time == \"2020\",\n    `Energy imports, net (% of energy use) [EG.IMP.CONS.ZS]` != \"..\"\n  ) |&gt; \n  mutate(energy_import = as.numeric(`Energy imports, net (% of energy use) [EG.IMP.CONS.ZS]`)) |&gt; \n  filter(energy_import &gt;= -150 & energy_import &lt;=150) |&gt; \n  full_join(world_data, by = join_by(`Country Name` == region))"
   },
   {
     "objectID": "posts/r-map/index.html#what-is-a-choropleth-map",
     "href": "posts/r-map/index.html#what-is-a-choropleth-map",
-    "title": "Provincial Choropleth Map",
+    "title": "Global Energy Imports",
     "section": "What is a Choropleth Map",
     "text": "What is a Choropleth Map\nEach region is represented as a polygon with boundaries representing the separation between different areas. Zonal statistics may be calculated that correspond with each region. The values can be mapped to a colour or a colour saturation level to create intuitive"
   },
   {
-    "objectID": "posts/r-map/index.html#visualizing-provinical-summary-statistics",
-    "href": "posts/r-map/index.html#visualizing-provinical-summary-statistics",
-    "title": "Provincial Choropleth Map",
-    "section": "Visualizing Provinical Summary Statistics",
-    "text": "Visualizing Provinical Summary Statistics\nChoropleth maps can be generated in R with several tools including ggplot. Here the provinces are plotted on the map with colours assigned based on population.\n\nworld_data &lt;- ggplot2::map_data(\"world\")\npop_data &lt;- gt::countrypops\nhead(world_data)\n\n       long      lat group order region subregion\n1 -69.89912 12.45200     1     1  Aruba      &lt;NA&gt;\n2 -69.89571 12.42300     1     2  Aruba      &lt;NA&gt;\n3 -69.94219 12.43853     1     3  Aruba      &lt;NA&gt;\n4 -70.00415 12.50049     1     4  Aruba      &lt;NA&gt;\n5 -70.06612 12.54697     1     5  Aruba      &lt;NA&gt;\n6 -70.05088 12.59707     1     6  Aruba      &lt;NA&gt;\n\nggplot(world_data, aes(x = long, y = lat, group = group)) +\n  geom_polygon(fill = \"lightgray\", color = \"white\") +\n  theme_minimal()\n\n\n\n\n\n\n\n# ggplot(my_sf) +\n#   geom_sf(fill = \"white\", color = \"black\", linewidth = 0.3) +\n#   theme_void()"
+    "objectID": "posts/r-map/index.html#visualizing-country-level-statistics",
+    "href": "posts/r-map/index.html#visualizing-country-level-statistics",
+    "title": "Global Energy Imports",
+    "section": "Visualizing Country Level Statistics",
+    "text": "Visualizing Country Level Statistics\nChoropleth maps can be generated in R with several tools including ggplot. Here countries are plotted on the map with colours assigned based on net energy import percentage.\n\nggplot(energy_subset, aes(x = long, y = lat, group = group, fill = energy_import)) +\n  geom_polygon(color = \"white\") +\n  scale_fill_gradient2(low = \"blue\", mid = \"lightgrey\", high = \"yellow\", midpoint = 0) +\n  theme_minimal()\n\n\n\n\n% of Energy Imported by Country in 2020.\n\n\n\n\naccreditation: Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com. Data from World Bank - World Development Indicators (2026)."
   },
   {
     "objectID": "about.html",
@@ -124,12 +138,5 @@
     "title": "About",
     "section": "Currently",
     "text": "Currently\nThis year I am working on a Master’s of Data Science at the University of British Columbia to deepen my technical skillset. The intensive course-based program covers statistics, machine learning, and modern data science tools with a focus on high-value workplace skills. In addition, I will continue to support Shiny web ap development for the Kaplan Lab."
-  },
-  {
-    "objectID": "posts/python-rainfall/index.html#setup",
-    "href": "posts/python-rainfall/index.html#setup",
-    "title": "Precipitation in Vancouver",
-    "section": "",
-    "text": "import pandas as pd\nimport seaborn as sns"
   }
 ]

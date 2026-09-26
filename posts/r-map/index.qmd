@@ -1,45 +1,78 @@
 ---
-title: "Provincial Choropleth Map"
+title: "Global Energy Imports"
 author: "Julia Gorospe"
-date: 2026-09-21
+date: 2026-09-25
 ---
 
-```{r setup}
+```{r}
+#| label: setup
 #| message: false
 
 # load packages
 library(tidyverse)
-library(gt)
-#library(sf)
+
 ```
 
 ## Dataset
-source: Natural Earth
-accreditation: Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.
-license: Creative Commons CC0 Public Domain Dedication
+The World Bank compiles time series data for a variety of society measures by administrative regions. Here trends in energy import are visualized through a set of maps.
 
-```{r load data}
+**Indicator description from World Bank**
+_Net energy imports are estimated as gross imports less gross exports, both measured in tons of oil equivalents (toe). A negative value indicates that the country is a net exporter. Energy use refers to use of primary energy before transformation to other end-use fuels, which is equal to indigenous production plus imports and stock changes, minus exports and fuels supplied to ships and aircraft engaged in international transport._
+
+source: [World Development Indicators](https://databank.worldbank.org/source/world-development-indicators) Energy imports, net (% of energy use) - EG.IMP.CONS.ZS     
+license: Creative Commons Attribution 4.0
+
+A simple global map with country boundaries is available from Natural Earth through the `ggplot2` package.  
+source: [Natural Earth](https://www.naturalearthdata.com/downloads/)  
+license: Creative Commons CC0 Public Domain Dedication  
+
+```{r}
 #| warning: false
 
-#provinces <- read_sf()
+# load WDI dataset
+energy_raw <- read_csv("energy_imports.csv") |> 
+    mutate(`Country Name` = case_when(
+      `Country Name` == "Russian Federation" ~ "Russia",
+      `Country Name` == "United States" ~ "USA",
+      TRUE ~ `Country Name`)
+    )
 
+# load world data from ggplot2 package
+world_data <- ggplot2::map_data("world")
 ```
+
+## Data Wrangling
+The energy import data is too bulky to visualize meaningfully and needs to be subset to provide a usable dataset. To create the maps, the energy import data must be merged with the geographic data.
+
+```{r}
+energy_subset <- energy_raw |> 
+  filter(
+    Time == "2020",
+    `Energy imports, net (% of energy use) [EG.IMP.CONS.ZS]` != ".."
+  ) |> 
+  mutate(energy_import = as.numeric(`Energy imports, net (% of energy use) [EG.IMP.CONS.ZS]`)) |> 
+  filter(energy_import >= -150 & energy_import <=150) |> 
+  full_join(world_data, by = join_by(`Country Name` == region))
+```
+
 
 ## What is a Choropleth Map
 Each region is represented as a polygon with boundaries representing the separation between different areas. Zonal statistics may be calculated that correspond with each region. The values can be mapped to a colour or a colour saturation level to create intuitive 
 
 
-## Visualizing Provinical Summary Statistics
-Choropleth maps can be generated in R with several tools including ggplot. Here the provinces are plotted on the map with colours assigned based on population.
+## Visualizing Country Level Statistics
+Choropleth maps can be generated in R with several tools including ggplot. Here countries are plotted on the map with colours assigned based on net energy import percentage.
 
-```{r map}
-world_data <- ggplot2::map_data("world")
-pop_data <- gt::countrypops
-head(world_data)
-ggplot(world_data, aes(x = long, y = lat, group = group)) +
-  geom_polygon(fill = "lightgray", color = "white") +
+```{r}
+#| label: map
+#| fig-width: 8
+#| fig-height: 4.5
+#| fig-cap: "% of Energy Imported by Country in 2020."
+
+ggplot(energy_subset, aes(x = long, y = lat, group = group, fill = energy_import)) +
+  geom_polygon(color = "white") +
+  scale_fill_gradient2(low = "blue", mid = "lightgrey", high = "yellow", midpoint = 0) +
   theme_minimal()
-# ggplot(my_sf) +
-#   geom_sf(fill = "white", color = "black", linewidth = 0.3) +
-#   theme_void()
 ```
+
+accreditation: Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com. Data from World Bank - World Development Indicators (2026).

@@ -4,7 +4,9 @@ author: "Julia Gorospe"
 date: 2026-09-21
 ---
 
+
 ## Setup
+
 ```{python setup}
 #| message: false
 
@@ -12,10 +14,11 @@ import pandas as pd
 import seaborn as sns
 ```
 
-## Data
-source: Government of Canada - Environment and Natural Resources: [Monthly Climate Data Report for Vancouver Dunbar South (1966–1982)](https://climate.weather.gc.ca/climate_data/monthly_data_e.html?hlyRange=%7C&dlyRange=1966-03-01%7C1982-08-31&mlyRange=1966-01-01%7C1982-12-01&climate_id=1108436&Prov=BC&urlExtension=_e.html&searchType=stnProx&optLimit=specDate&Month=1&Day=1&StartYear=1840&EndYear=2026&Year=1978&selRowPerPage=25&Line=4&txtRadius=25&optProxType=navLink&txtLatDecDeg=49.216666666667&txtLongDecDeg=-123.13333333333&timeframe=3)
 
-accreditation: based on Environment and Climate Change Canada data.
+## Data
+The Environment and Natural Resources department makes historical weather data publicly available. A weather station in Dunbar collected data on rainfall, snowfall, and temperature between 1955 and 1982.
+
+source: Government of Canada - Environment and Natural Resources: [Monthly Climate Data Report for Vancouver Dunbar South (1966–1982)](https://climate.weather.gc.ca/climate_data/monthly_data_e.html?hlyRange=%7C&dlyRange=1966-03-01%7C1982-08-31&mlyRange=1966-01-01%7C1982-12-01&climate_id=1108436&Prov=BC&urlExtension=_e.html&searchType=stnProx&optLimit=specDate&Month=1&Day=1&StartYear=1840&EndYear=2026&Year=1978&selRowPerPage=25&Line=4&txtRadius=25&optProxType=navLink&txtLatDecDeg=49.216666666667&txtLongDecDeg=-123.13333333333&timeframe=3)
 
 licence: Open Government License - Canada
 
@@ -23,6 +26,9 @@ licence: Open Government License - Canada
 precip = pd.read_csv("en_climate_monthly_BC_1108436_1966-1982_P1M.csv")
 precip.head()
 ```
+
+
+accreditation: based on Environment and Climate Change Canada data.
 
 ## Monthly Averages 1966-1982
 Summary statistics help investigate which months have the most precipitation in Vancouver.
@@ -51,10 +57,14 @@ month_avg = (
 month_avg
 ```
 
+
 ## Trends in Rainfall
 A quick bar plot will help visualize the trend and really highlight which months are wet and which months are dry!
 
 ```{python plot}
+#| label: plot
+#| fig-cap: "Average Monthly Percipitation in Dunbar Vancouver 1966-1982"
+
 ax = sns.barplot(
     data=month_avg,
     x="Month",

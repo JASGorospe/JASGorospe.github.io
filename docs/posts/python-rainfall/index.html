@@ -206,20 +206,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
-<div id="686c4f1a" class="cell" data-message="false" data-execution_count="1">
+<div id="d4587fb4" class="cell" data-message="false" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
+<p>The Environment and Natural Resources department makes historical weather data publicly available. A weather station in Dunbar collected data on rainfall, snowfall, and temperature between 1955 and 1982.</p>
 <p>source: Government of Canada - Environment and Natural Resources: <a href="https://climate.weather.gc.ca/climate_data/monthly_data_e.html?hlyRange=%7C&amp;dlyRange=1966-03-01%7C1982-08-31&amp;mlyRange=1966-01-01%7C1982-12-01&amp;climate_id=1108436&amp;Prov=BC&amp;urlExtension=_e.html&amp;searchType=stnProx&amp;optLimit=specDate&amp;Month=1&amp;Day=1&amp;StartYear=1840&amp;EndYear=2026&amp;Year=1978&amp;selRowPerPage=25&amp;Line=4&amp;txtRadius=25&amp;optProxType=navLink&amp;txtLatDecDeg=49.216666666667&amp;txtLongDecDeg=-123.13333333333&amp;timeframe=3">Monthly Climate Data Report for Vancouver Dunbar South (1966–1982)</a></p>
-<p>accreditation: based on Environment and Climate Change Canada data.</p>
 <p>licence: Open Government License - Canada</p>
-<div id="38bd5017" class="cell" data-execution_count="2">
+<div id="250617da" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>precip <span class="op">=</span> pd.read_csv(<span class="st">"en_climate_monthly_BC_1108436_1966-1982_P1M.csv"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>precip.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
 
@@ -378,11 +378,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>accreditation: based on Environment and Climate Change Canada data.</p>
 </section>
 <section id="monthly-averages-1966-1982" class="level2">
 <h2 class="anchored" data-anchor-id="monthly-averages-1966-1982">Monthly Averages 1966-1982</h2>
 <p>Summary statistics help investigate which months have the most precipitation in Vancouver.</p>
-<div id="461774f1" class="cell" data-execution_count="3">
+<div id="704cfaaa" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># recode the month column to have month names</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>months <span class="op">=</span> {</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>: <span class="st">"January"</span>, <span class="dv">2</span>: <span class="st">"February"</span>, <span class="dv">3</span>: <span class="st">"March"</span>, <span class="dv">4</span>: <span class="st">"April"</span>, <span class="dv">5</span>: <span class="st">"May"</span>, <span class="dv">6</span>: <span class="st">"June"</span>,</span>
@@ -404,7 +405,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    .mean().<span class="bu">round</span>(<span class="dv">2</span>)</span>
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>month_avg</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
@@ -487,7 +488,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="trends-in-rainfall" class="level2">
 <h2 class="anchored" data-anchor-id="trends-in-rainfall">Trends in Rainfall</h2>
 <p>A quick bar plot will help visualize the trend and really highlight which months are wet and which months are dry!</p>
-<div id="083cc885" class="cell" data-execution_count="4">
+<div id="cell-plot" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.barplot(</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>month_avg,</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"Month"</span>,</span>
@@ -497,9 +498,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Average Monthly Precipitation"</span>)</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>ax.tick_params(axis<span class="op">=</span><span class="st">"x"</span>, rotation<span class="op">=</span><span class="dv">90</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
-<div>
+<div id="plot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="index_files/figure-html/cell-5-output-1.png" width="594" height="512" class="figure-img"></p>
+<p><img src="index_files/figure-html/plot-output-1.png" width="594" height="512" class="figure-img"></p>
+<figcaption>Average Monthly Percipitation in Dunbar Vancouver 1966-1982</figcaption>
 </figure>
 </div>
 </div>
